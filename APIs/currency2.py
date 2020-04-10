@@ -1,0 +1,18 @@
+import requests
+
+def main():
+    
+    base = input("First Currency: ")
+    other = input("Second Currency: ")
+    
+    res = requests.get("http://data.fixer.io/api/latest?access_key=a15a02da3e9efc08debdc155fe36aee9&format=1", params={"base": base, "symbols": other})
+    
+    if res.status_code != 200:
+        raise Exception("ERROR: API request unseccessful")
+    
+    data = res.json()
+    rate = data["rates"][other]
+    print(f"1 {base} is equal to {rate} {other}")
+    
+if __name__ == "__main__":
+    main()

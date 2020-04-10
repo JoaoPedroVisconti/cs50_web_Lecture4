@@ -1,7 +1,6 @@
 *.yaml
 *.vscode
 config.py
-/flask_app
 *.pyc
 *.md
 # /__pycache__/
